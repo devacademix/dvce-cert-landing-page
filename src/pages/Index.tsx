@@ -54,7 +54,7 @@ const Index = () => {
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white overflow-x-hidden">
         {/* Matrix Background Effect */}
         <div className="fixed inset-0 opacity-10 pointer-events-none">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%2300ff88" fill-opacity="0.1"%3E%3Cpath d="M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z"/%3E%3C/g%3E%3C/svg%3E')]"></div>
+          <div className="absolute inset-0 bg-[length:40px_40px] bg-[radial-gradient(circle_at_center,_#00ff88_1px,_transparent_1px)]"></div>
         </div>
 
         {/* Header */}
