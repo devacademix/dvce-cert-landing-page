@@ -341,7 +341,7 @@ const Index = () => {
         {/* Footer */}
         <footer className="bg-slate-950 border-t border-slate-800 py-16">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-4 gap-8 mb-12">
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div>
                 <div className="flex items-center space-x-4 mb-6">
                   <img 
@@ -364,33 +364,21 @@ const Index = () => {
               <div>
                 <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
                 <ul className="space-y-2 text-slate-400">
-                  <li><a href="#" className="hover:text-orange-400 transition-colors">About DevAcademix</a></li>
-                  <li><a href="#" className="hover:text-orange-400 transition-colors">Course Details</a></li>
-                  <li><a href="#" className="hover:text-orange-400 transition-colors">Certification</a></li>
-                  <li><a href="#" className="hover:text-orange-400 transition-colors">Student Portal</a></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="text-lg font-semibold text-white mb-4">Support</h4>
-                <ul className="space-y-2 text-slate-400">
-                  <li><a href="#" className="hover:text-orange-400 transition-colors">Contact Us</a></li>
-                  <li><a href="#" className="hover:text-orange-400 transition-colors flex items-center space-x-2">
+                  <li><a href="https://devacademix.com/about" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">About DevAcademix</a></li>
+                  <li><a href="https://devacademix.com/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Student Portal</a></li>
+                  <li><a href="https://chat.whatsapp.com/JCOWIvdDQNuJIuGOIW49r6" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors flex items-center space-x-2">
                     <ExternalLink className="w-4 h-4" />
                     <span>WhatsApp Support</span>
                   </a></li>
-                  <li><a href="#" className="hover:text-orange-400 transition-colors">Help Center</a></li>
-                  <li><a href="#" className="hover:text-orange-400 transition-colors">FAQ</a></li>
+                  <li><a href="#" className="hover:text-orange-400 transition-colors">Contact Us</a></li>
                 </ul>
               </div>
               
               <div>
                 <h4 className="text-lg font-semibold text-white mb-4">Connect</h4>
                 <ul className="space-y-2 text-slate-400">
-                  <li><a href="#" className="hover:text-orange-400 transition-colors">LinkedIn</a></li>
-                  <li><a href="#" className="hover:text-orange-400 transition-colors">Twitter</a></li>
-                  <li><a href="#" className="hover:text-orange-400 transition-colors">YouTube</a></li>
-                  <li><a href="#" className="hover:text-orange-400 transition-colors">Discord</a></li>
+                  <li><a href="https://www.linkedin.com/company/devacademix" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">LinkedIn</a></li>
+                  <li><a href="https://www.youtube.com/channel/UCUYiK_ivhGMoDRsBR1vkqEA" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">YouTube</a></li>
                 </ul>
               </div>
             </div>
