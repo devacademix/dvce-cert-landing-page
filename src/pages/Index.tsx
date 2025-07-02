@@ -1,10 +1,10 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Shield, Target, Award, Users, BookOpen, Zap, ExternalLink } from "lucide-react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -73,17 +73,21 @@ const Index = () => {
                 <p className="text-xs text-slate-400">Professional Cybersecurity Training</p>
               </div>
             </div>
-            <Button className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white font-semibold px-8 py-2 rounded-full shadow-lg hover:shadow-red-500/25 transition-all duration-300">
-              Enroll Now
-            </Button>
+            <Link to="/enrollment">
+              <Button className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white font-semibold px-8 py-2 rounded-full shadow-lg hover:shadow-red-500/25 transition-all duration-300">
+                Enroll Now
+              </Button>
+            </Link>
           </div>
         </header>
 
         {/* Sticky CTA Button */}
         <div className={`fixed bottom-6 right-6 z-50 transition-all duration-300 ${isSticky ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-8 py-4 rounded-full shadow-2xl hover:shadow-orange-500/30 transition-all duration-300 animate-pulse">
-            Limited Seats - Enroll Now!
-          </Button>
+          <Link to="/enrollment">
+            <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-8 py-4 rounded-full shadow-2xl hover:shadow-orange-500/30 transition-all duration-300 animate-pulse">
+              Limited Seats - Enroll Now!
+            </Button>
+          </Link>
         </div>
 
         {/* Hero Section */}
@@ -114,9 +118,11 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold text-lg px-12 py-4 rounded-full shadow-2xl hover:shadow-orange-500/30 transition-all duration-300 transform hover:scale-105">
-                Enroll Now - Limited Seats Available
-              </Button>
+              <Link to="/enrollment">
+                <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold text-lg px-12 py-4 rounded-full shadow-2xl hover:shadow-orange-500/30 transition-all duration-300 transform hover:scale-105">
+                  Enroll Now - Limited Seats Available
+                </Button>
+              </Link>
               <div className="flex items-center space-x-2 text-slate-400">
                 <Users className="w-5 h-5" />
                 <span>Join 500+ certified professionals</span>
@@ -323,9 +329,11 @@ const Index = () => {
                 <p className="text-lg text-slate-300">Secure your seat today - Only a few spots remaining in this batch!</p>
               </div>
 
-              <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold text-xl px-16 py-6 rounded-full shadow-2xl hover:shadow-orange-500/30 transition-all duration-300 transform hover:scale-105">
-                Enroll Now - Start Your Journey
-              </Button>
+              <Link to="/enrollment">
+                <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold text-xl px-16 py-6 rounded-full shadow-2xl hover:shadow-orange-500/30 transition-all duration-300 transform hover:scale-105">
+                  Enroll Now - Start Your Journey
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
