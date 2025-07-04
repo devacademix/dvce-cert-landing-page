@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Shield, Target, Award, Users, BookOpen, Zap, ExternalLink, Calendar, Globe, Trophy, Cpu, MessageSquare, FileText, Cloud, Bug, Github, Server } from "lucide-react";
+import { CheckCircle, Shield, Target, Award, Users, BookOpen, Zap, ExternalLink, Calendar, Globe, Trophy, Cpu, MessageSquare, FileText, Cloud, Bug, Github, Server, Clock } from "lucide-react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
