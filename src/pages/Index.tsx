@@ -378,36 +378,135 @@ const Index = () => {
         {/* Exam Format Section */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <Card className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-orange-500/30 shadow-2xl shadow-orange-500/10">
-                <CardContent className="p-12 text-center">
-                  <Award className="w-16 h-16 text-orange-400 mx-auto mb-8" />
-                  <h2 className="text-4xl font-bold mb-6">
-                    Final Exam <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">Format</span>
-                  </h2>
-                  
-                  <div className="bg-slate-700/30 rounded-lg p-6 mb-8">
-                    <p className="text-xl text-orange-400 mb-4">🎯 Live Penetration Testing Challenge</p>
-                    <p className="text-slate-300 mb-4">A dedicated IP address of a target server will be provided</p>
-                    <p className="text-slate-300">Your task: Exploit the system and capture 4 flags</p>
-                  </div>
-                  
-                  <div className="grid md:grid-cols-2 gap-8 mb-8">
-                    <div className="bg-slate-700/30 rounded-lg p-6">
-                      <h3 className="text-2xl font-bold text-orange-400 mb-4">Flag Capture</h3>
-                      <p className="text-6xl font-bold text-white mb-2">80</p>
-                      <p className="text-slate-300">points (4 flags × 20 each)</p>
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                  Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">Certification Exam</span>
+                </h2>
+                <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                  A comprehensive practical assessment designed to evaluate your real-world penetration testing capabilities
+                </p>
+              </div>
+
+              <div className="grid lg:grid-cols-2 gap-12 mb-12">
+                {/* Exam Overview */}
+                <Card className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-orange-500/30 shadow-2xl shadow-orange-500/10">
+                  <CardContent className="p-8">
+                    <div className="flex items-center space-x-4 mb-6">
+                      <Shield className="w-10 h-10 text-orange-400" />
+                      <h3 className="text-2xl font-bold text-white">Exam Structure</h3>
                     </div>
-                    <div className="bg-slate-700/30 rounded-lg p-6">
-                      <h3 className="text-2xl font-bold text-red-400 mb-4">Report + PoC</h3>
-                      <p className="text-6xl font-bold text-white mb-2">20</p>
-                      <p className="text-slate-300">points</p>
+                    
+                    <div className="space-y-6">
+                      <div className="bg-slate-700/30 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-orange-400 mb-2">Live Penetration Testing Challenge</h4>
+                        <p className="text-slate-300 text-sm">You will receive a dedicated IP address of a vulnerable target server environment</p>
+                      </div>
+                      
+                      <div className="bg-slate-700/30 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-red-400 mb-2">Objective</h4>
+                        <p className="text-slate-300 text-sm">Successfully exploit the system vulnerabilities and capture 4 hidden flags using professional penetration testing methodologies</p>
+                      </div>
+                      
+                      <div className="bg-slate-700/30 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-green-400 mb-2">Documentation</h4>
+                        <p className="text-slate-300 text-sm">Submit a comprehensive penetration testing report with proof-of-concept evidence</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-6 mb-8">
-                    <p className="text-2xl font-bold text-orange-400 mb-2">Passing Score: 70/100</p>
-                    <p className="text-slate-300">No theory • No multiple-choice questions • 100% practical evaluation</p>
+                  </CardContent>
+                </Card>
+
+                {/* Scoring System */}
+                <Card className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-red-500/30 shadow-2xl shadow-red-500/10">
+                  <CardContent className="p-8">
+                    <div className="flex items-center space-x-4 mb-6">
+                      <Trophy className="w-10 h-10 text-red-400" />
+                      <h3 className="text-2xl font-bold text-white">Scoring Breakdown</h3>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center bg-orange-500/10 border border-orange-500/30 rounded-lg p-4">
+                        <div>
+                          <h4 className="text-lg font-semibold text-orange-400">Flag Capture</h4>
+                          <p className="text-slate-300 text-sm">4 Flags × 20 Points Each</p>
+                        </div>
+                        <div className="text-3xl font-bold text-orange-400">80</div>
+                      </div>
+                      
+                      <div className="flex justify-between items-center bg-red-500/10 border border-red-500/30 rounded-lg p-4">
+                        <div>
+                          <h4 className="text-lg font-semibold text-red-400">Professional Report</h4>
+                          <p className="text-slate-300 text-sm">Documentation + PoC</p>
+                        </div>
+                        <div className="text-3xl font-bold text-red-400">20</div>
+                      </div>
+                      
+                      <div className="border-t border-slate-600 pt-4">
+                        <div className="flex justify-between items-center">
+                          <span className="text-xl font-bold text-white">Total Score</span>
+                          <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">100</span>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Certification Requirements */}
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
+                <Card className="bg-green-500/10 border-green-500/30 text-center">
+                  <CardContent className="p-6">
+                    <CheckCircle className="w-10 h-10 text-green-400 mx-auto mb-4" />
+                    <h4 className="text-xl font-bold text-green-400 mb-2">Passing Score</h4>
+                    <p className="text-3xl font-bold text-white mb-2">70/100</p>
+                    <p className="text-slate-400 text-sm">Minimum required for certification</p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-blue-500/10 border-blue-500/30 text-center">
+                  <CardContent className="p-6">
+                    <Target className="w-10 h-10 text-blue-400 mx-auto mb-4" />
+                    <h4 className="text-xl font-bold text-blue-400 mb-2">100% Practical</h4>
+                    <p className="text-slate-300 text-sm mb-2">No Theory Questions</p>
+                    <p className="text-slate-400 text-sm">Real-world hands-on evaluation</p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-purple-500/10 border-purple-500/30 text-center">
+                  <CardContent className="p-6">
+                    <Award className="w-10 h-10 text-purple-400 mx-auto mb-4" />
+                    <h4 className="text-xl font-bold text-purple-400 mb-2">Industry Standard</h4>
+                    <p className="text-slate-300 text-sm mb-2">Professional Format</p>
+                    <p className="text-slate-400 text-sm">Aligned with industry practices</p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Key Features */}
+              <Card className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 border-slate-600/50">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold text-center text-white mb-8">Exam Highlights</h3>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="text-center">
+                      <Server className="w-8 h-8 text-orange-400 mx-auto mb-3" />
+                      <h4 className="font-semibold text-white mb-2">Dedicated Environment</h4>
+                      <p className="text-slate-400 text-sm">Isolated target server for each candidate</p>
+                    </div>
+                    <div className="text-center">
+                      <Clock className="w-8 h-8 text-red-400 mx-auto mb-3" />
+                      <h4 className="font-semibold text-white mb-2">Time-bound Assessment</h4>
+                      <p className="text-slate-400 text-sm">Professional time management skills</p>
+                    </div>
+                    <div className="text-center">
+                      <FileText className="w-8 h-8 text-green-400 mx-auto mb-3" />
+                      <h4 className="font-semibold text-white mb-2">Professional Reporting</h4>
+                      <p className="text-slate-400 text-sm">Industry-standard documentation</p>
+                    </div>
+                    <div className="text-center">
+                      <Badge className="w-8 h-8 text-blue-400 mx-auto mb-3" />
+                      <h4 className="font-semibold text-white mb-2">Instant Certification</h4>
+                      <p className="text-slate-400 text-sm">Digital certificate upon passing</p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
