@@ -1,8 +1,9 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Shield, Target, Award, Users, BookOpen, Zap, ExternalLink } from "lucide-react";
+import { CheckCircle, Shield, Target, Award, Users, BookOpen, Zap, ExternalLink, Calendar, Globe, Trophy, Cpu, MessageSquare, FileText, Cloud, Bug, Github, Server } from "lucide-react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
@@ -42,6 +43,40 @@ const Index = () => {
     { icon: Shield, title: "Real-world Lab Environments", desc: "Practice on actual vulnerable systems" },
     { icon: Award, title: "Industry-Recognized Certificate", desc: "Digital badge with credential ID" },
     { icon: Zap, title: "Live Hacking Challenge", desc: "Final exam with practical penetration testing" }
+  ];
+
+  const programHighlights = [
+    { icon: BookOpen, title: "20+ Practical Labs", desc: "Real-world hands-on experience" },
+    { icon: Server, title: "Server Configuration Training", desc: "Complete infrastructure setup" },
+    { icon: MessageSquare, title: "AI-Powered WhatsApp Assistant", desc: "24x7 instant support & guidance" },
+    { icon: Calendar, title: "1-Month Internship", desc: "Remote or on-project experience" },
+    { icon: Cpu, title: "100+ Premium Tools", desc: "Access to professional-grade tools" },
+    { icon: Github, title: "100+ Custom Scripts", desc: "Social Engineering Toolkit (SET)" },
+    { icon: Globe, title: "Live Online Classes", desc: "3 months - 1 class/week" },
+    { icon: Trophy, title: "Multiple Certifications", desc: "Completion + Internship + Recommendation" }
+  ];
+
+  const toolsAndPlatforms = [
+    "Burp Suite Pro", "Nessus Pro", "Metasploit", "Kali Linux", 
+    "OWASP ZAP", "Private CTF Labs", "Personal Virtual Lab Environment", "Cloud-based Infrastructure"
+  ];
+
+  const curriculumStandards = [
+    "OWASP Top 10 Vulnerabilities",
+    "MITRE ATT&CK Framework",
+    "NIST Cybersecurity Standards",
+    "Web, Network & Cloud Pentesting",
+    "Bug Bounty Techniques",
+    "Real-World Attack Scenarios"
+  ];
+
+  const careerSupport = [
+    "Resume & LinkedIn Profile Building",
+    "Job Placement Assistance",
+    "Dedicated Career Coach Support",
+    "Top 5 Performers Featured on Website",
+    "Paid Internship/Freelance Opportunities",
+    "Special White Hat Hacker Badge"
   ];
 
   return (
@@ -93,12 +128,15 @@ const Index = () => {
         {/* Hero Section */}
         <section className="relative py-20 lg:py-32">
           <div className="container mx-auto px-4 text-center">
-            <div className="flex justify-center space-x-4 mb-8">
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
               <Badge className="bg-orange-500/20 text-orange-400 border-orange-500/30 px-4 py-2 text-sm font-semibold">
                 100% PRACTICAL
               </Badge>
               <Badge className="bg-red-500/20 text-red-400 border-red-500/30 px-4 py-2 text-sm font-semibold">
                 REAL LAB-BASED EXAM
+              </Badge>
+              <Badge className="bg-green-500/20 text-green-400 border-green-500/30 px-4 py-2 text-sm font-semibold">
+                FIRST BATCH: 25th JULY 2025
               </Badge>
             </div>
             
@@ -132,27 +170,53 @@ const Index = () => {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               <div className="text-center">
-                <div className="text-3xl font-bold text-orange-400 mb-2">100%</div>
-                <div className="text-slate-400">Practical Training</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-red-400 mb-2">8</div>
+                <div className="text-3xl font-bold text-orange-400 mb-2">8</div>
                 <div className="text-slate-400">Comprehensive Modules</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-orange-400 mb-2">70%</div>
-                <div className="text-slate-400">Passing Score</div>
+                <div className="text-3xl font-bold text-red-400 mb-2">20+</div>
+                <div className="text-slate-400">Practical Labs</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-red-400 mb-2">∞</div>
-                <div className="text-slate-400">Lifetime Validity</div>
+                <div className="text-3xl font-bold text-orange-400 mb-2">100+</div>
+                <div className="text-slate-400">Premium Tools</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-red-400 mb-2">24x7</div>
+                <div className="text-slate-400">WhatsApp Support</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* What You'll Learn Section */}
+        {/* Program Highlights */}
         <section className="py-20 bg-gradient-to-r from-slate-900/50 to-slate-800/50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Program <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">Highlights</span>
+              </h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Comprehensive features designed to give you real-world cybersecurity expertise
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              {programHighlights.map((feature, index) => (
+                <Card key={index} className="bg-slate-800/50 border-slate-700/50 hover:border-orange-500/50 transition-all duration-300 group hover:shadow-xl hover:shadow-orange-500/10 text-center">
+                  <CardContent className="p-6">
+                    <feature.icon className="w-10 h-10 text-orange-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                    <h3 className="text-lg font-bold text-white mb-3">{feature.title}</h3>
+                    <p className="text-slate-400 text-sm">{feature.desc}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* What You'll Learn Section */}
+        <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -178,8 +242,60 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Modules Section */}
+        {/* Industry Standards */}
+        <section className="py-20 bg-gradient-to-r from-slate-900/50 to-slate-800/50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Industry-Relevant <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">Curriculum</span>
+              </h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Aligned with global cybersecurity standards and frameworks
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {curriculumStandards.map((standard, index) => (
+                <Card key={index} className="bg-slate-800/50 border-slate-700/50 hover:border-red-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/10">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <Shield className="w-6 h-6 text-red-400 mt-1 flex-shrink-0" />
+                      <span className="text-slate-200 font-medium">{standard}</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Tools & Platforms */}
         <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Tools & <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">Platforms</span>
+              </h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Access to premium tools and cloud-based lab environments
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+              {toolsAndPlatforms.map((tool, index) => (
+                <Card key={index} className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-slate-700/50 hover:border-orange-500/50 transition-all duration-300 group">
+                  <CardContent className="p-4 text-center">
+                    <Cpu className="w-8 h-8 text-orange-400 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                    <p className="text-slate-200 font-medium text-sm">{tool}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Course Modules */}
+        <section className="py-20 bg-gradient-to-r from-slate-900/50 to-slate-800/50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -199,6 +315,33 @@ const Index = () => {
                     </div>
                     <h3 className="text-lg font-bold text-white mb-3">{module.title}</h3>
                     <p className="text-slate-400 text-sm">{module.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Career Support */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Career <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">Support</span>
+              </h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Complete support system to launch your cybersecurity career
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {careerSupport.map((support, index) => (
+                <Card key={index} className="bg-slate-800/50 border-slate-700/50 hover:border-orange-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/10">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <Trophy className="w-6 h-6 text-orange-400 mt-1 flex-shrink-0" />
+                      <span className="text-slate-200 font-medium">{support}</span>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
@@ -243,16 +386,22 @@ const Index = () => {
                     Final Exam <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">Format</span>
                   </h2>
                   
+                  <div className="bg-slate-700/30 rounded-lg p-6 mb-8">
+                    <p className="text-xl text-orange-400 mb-4">🎯 Live Penetration Testing Challenge</p>
+                    <p className="text-slate-300 mb-4">A dedicated IP address of a target server will be provided</p>
+                    <p className="text-slate-300">Your task: Exploit the system and capture 4 flags</p>
+                  </div>
+                  
                   <div className="grid md:grid-cols-2 gap-8 mb-8">
                     <div className="bg-slate-700/30 rounded-lg p-6">
-                      <h3 className="text-2xl font-bold text-orange-400 mb-4">Live Practical Lab</h3>
+                      <h3 className="text-2xl font-bold text-orange-400 mb-4">Flag Capture</h3>
                       <p className="text-6xl font-bold text-white mb-2">80</p>
-                      <p className="text-slate-300">marks</p>
+                      <p className="text-slate-300">points (4 flags × 20 each)</p>
                     </div>
                     <div className="bg-slate-700/30 rounded-lg p-6">
-                      <h3 className="text-2xl font-bold text-red-400 mb-4">Professional Report</h3>
+                      <h3 className="text-2xl font-bold text-red-400 mb-4">Report + PoC</h3>
                       <p className="text-6xl font-bold text-white mb-2">20</p>
-                      <p className="text-slate-300">marks</p>
+                      <p className="text-slate-300">points</p>
                     </div>
                   </div>
                   
@@ -266,34 +415,95 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Certificate Section */}
+        {/* Learning Materials & Community */}
         <section className="py-20 bg-gradient-to-r from-slate-900/50 to-slate-800/50">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+              <Card className="bg-slate-800/50 border-slate-700/50">
+                <CardContent className="p-8">
+                  <FileText className="w-12 h-12 text-orange-400 mb-6" />
+                  <h3 className="text-2xl font-bold text-white mb-6">Learning Materials</h3>
+                  <ul className="space-y-3 text-slate-300">
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-orange-400" />
+                      <span>Premium E-books, Notes, Cheat Sheets</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-orange-400" />
+                      <span>Weekly Assignments & Quizzes</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-orange-400" />
+                      <span>GitHub Repo for Tools & Scripts</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-orange-400" />
+                      <span>Lifetime Access to Recorded Sessions</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-slate-800/50 border-slate-700/50">
+                <CardContent className="p-8">
+                  <Users className="w-12 h-12 text-red-400 mb-6" />
+                  <h3 className="text-2xl font-bold text-white mb-6">Community & Support</h3>
+                  <ul className="space-y-3 text-slate-300">
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-red-400" />
+                      <span>Access to Telegram Group</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-red-400" />
+                      <span>Peer-to-peer Learning & Networking</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-red-400" />
+                      <span>Live Doubt-Solving Sessions</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-red-400" />
+                      <span>Expert Discussion Forums</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Certificate Section */}
+        <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto text-center">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">Certificate</span>
+                Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">Certificates</span>
               </h2>
               <p className="text-xl text-slate-300 mb-12">
-                Industry-recognized digital certificate with blockchain verification
+                Multiple industry-recognized certificates with blockchain verification
               </p>
 
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6 text-left">
                   <div className="flex items-center space-x-4">
                     <CheckCircle className="w-6 h-6 text-orange-400" />
-                    <span className="text-slate-200">Digital certificate with candidate name</span>
+                    <span className="text-slate-200">Certificate of Completion</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <CheckCircle className="w-6 h-6 text-orange-400" />
-                    <span className="text-slate-200">Unique credential ID and QR code</span>
+                    <span className="text-slate-200">Internship Offer Letter</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <CheckCircle className="w-6 h-6 text-orange-400" />
-                    <span className="text-slate-200">Lifetime validity</span>
+                    <span className="text-slate-200">Internship Certificate</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <CheckCircle className="w-6 h-6 text-orange-400" />
-                    <span className="text-slate-200">Optional blockchain verification</span>
+                    <span className="text-slate-200">Proof of Recommendation</span>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <CheckCircle className="w-6 h-6 text-orange-400" />
+                    <span className="text-slate-200">White Hat Hacker Digital Badge</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <CheckCircle className="w-6 h-6 text-orange-400" />
@@ -314,7 +524,7 @@ const Index = () => {
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-20">
+        <section className="py-20 bg-gradient-to-r from-slate-900/50 to-slate-800/50">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -325,8 +535,8 @@ const Index = () => {
               </p>
               
               <div className="bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/30 rounded-xl p-8 mb-8">
-                <p className="text-2xl font-bold text-orange-400 mb-4">⚡ Limited Time Offer</p>
-                <p className="text-lg text-slate-300">Secure your seat today - Only a few spots remaining in this batch!</p>
+                <p className="text-2xl font-bold text-orange-400 mb-4">⚡ First Batch Starting Soon</p>
+                <p className="text-lg text-slate-300">First Batch Starts: 25th July 2025 - Secure your seat today!</p>
               </div>
 
               <Link to="/enrollment">
