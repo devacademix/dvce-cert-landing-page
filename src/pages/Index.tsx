@@ -482,28 +482,28 @@ const Index = () => {
                 </Card>
               </div>
 
-              {/* Key Features */}
+              {/* Key Features - Fixed color mixing */}
               <Card className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 border-slate-600/50">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-center text-white mb-8">Exam Highlights</h3>
                   <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div className="text-center">
-                      <Server className="w-8 h-8 text-orange-400 mx-auto mb-3" />
+                      <Server className="w-8 h-8 text-blue-400 mx-auto mb-3" />
                       <h4 className="font-semibold text-white mb-2">Dedicated Environment</h4>
                       <p className="text-slate-400 text-sm">Isolated target server for each candidate</p>
                     </div>
                     <div className="text-center">
-                      <Clock className="w-8 h-8 text-red-400 mx-auto mb-3" />
+                      <Clock className="w-8 h-8 text-green-400 mx-auto mb-3" />
                       <h4 className="font-semibold text-white mb-2">Time-bound Assessment</h4>
                       <p className="text-slate-400 text-sm">Professional time management skills</p>
                     </div>
                     <div className="text-center">
-                      <FileText className="w-8 h-8 text-green-400 mx-auto mb-3" />
+                      <FileText className="w-8 h-8 text-purple-400 mx-auto mb-3" />
                       <h4 className="font-semibold text-white mb-2">Professional Reporting</h4>
                       <p className="text-slate-400 text-sm">Industry-standard documentation</p>
                     </div>
                     <div className="text-center">
-                      <Badge className="w-8 h-8 text-blue-400 mx-auto mb-3" />
+                      <Badge className="w-8 h-8 text-yellow-400 mx-auto mb-3" />
                       <h4 className="font-semibold text-white mb-2">Instant Certification</h4>
                       <p className="text-slate-400 text-sm">Digital certificate upon passing</p>
                     </div>
