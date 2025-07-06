@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { CheckCircle, Star, Users, Award, Clock, Shield, Target, BookOpen, Code, Zap, ArrowRight, MessageCircle, Globe, TrendingUp, Lock, Eye, Wrench, Search, AlertTriangle, Activity, Calendar, Trophy, Server, Bot, FileText, Briefcase, BookMarked, Network, Cloud, Bug, Linkedin, Github, Users2, Flag, X, Check } from "lucide-react";
+import { CheckCircle, Star, Users, Award, Clock, Shield, Target, BookOpen, Wrench, FileText, Trophy, Server, Bot, Briefcase, Users2, Globe, TrendingUp, MessageCircle, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import CountrySelector from "@/components/CountrySelector";
@@ -21,77 +21,66 @@ const Index = () => {
     { 
       feature: "Focus Area", 
       dvce: "Practical VAPT skills with modern tools & labs", 
-      oscp: "Advanced penetration testing with hands-on labs", 
       ceh: "Broad ethical hacking & theory",
       icon: <Target className="w-5 h-5" />
     },
     { 
       feature: "Difficulty Level", 
       dvce: "Intermediate → Advanced", 
-      oscp: "Advanced (24-hour hacking exam)", 
       ceh: "Beginner → Intermediate",
       icon: <TrendingUp className="w-5 h-5" />
     },
     { 
       feature: "Exam Type", 
       dvce: "MCQ + Practical (Labs-based)", 
-      oscp: "24-hour practical exam", 
       ceh: "MCQ only",
       icon: <FileText className="w-5 h-5" />
     },
     { 
       feature: "Practical Focus", 
       dvce: "✔️ Yes (tool-based & real-world)", 
-      oscp: "✔️ Yes (heavily hands-on)", 
       ceh: "❌ Mostly theoretical",
       icon: <Wrench className="w-5 h-5" />
     },
     { 
       feature: "Course Content", 
       dvce: "VAPT lifecycle, Subdomain, OSINT, Web, Network", 
-      oscp: "Buffer overflows, pivoting, privilege escalation", 
       ceh: "Footprinting, scanning, malware",
       icon: <BookOpen className="w-5 h-5" />
     },
     { 
       feature: "Target Audience", 
       dvce: "Beginners to intermediate learners in VAPT", 
-      oscp: "Experienced pentesters, red teamers", 
       ceh: "IT security beginners",
       icon: <Users2 className="w-5 h-5" />
     },
     { 
       feature: "Recognition", 
       dvce: "🌟 Regional/Industry growing", 
-      oscp: "⭐ Global industry standard", 
       ceh: "⭐ Globally recognized",
       icon: <Award className="w-5 h-5" />
     },
     { 
       feature: "Cost", 
       dvce: "₹4,000 – ₹15,000 (approx.)", 
-      oscp: "₹1,00,000+ ($1599 approx.)", 
       ceh: "₹80,000+ ($1199 approx.)",
       icon: <TrendingUp className="w-5 h-5" />
     },
     { 
       feature: "Lab Environment", 
       dvce: "✔️ Guided labs (customized by DevAcademix)", 
-      oscp: "✔️ OffSec labs (very challenging)", 
       ceh: "❌ Mostly slides/diagrams",
       icon: <Server className="w-5 h-5" />
     },
     { 
       feature: "Certification Validity", 
       dvce: "Lifetime", 
-      oscp: "Lifetime", 
       ceh: "3 years (renewal required)",
       icon: <Clock className="w-5 h-5" />
     },
     { 
       feature: "Job Roles Targeted", 
       dvce: "VAPT Analyst, Security Tester, Jr. Pentester", 
-      oscp: "Red Team, Pentester, Exploit Developer", 
       ceh: "SOC Analyst, Security Analyst",
       icon: <Briefcase className="w-5 h-5" />
     }
@@ -348,7 +337,7 @@ const Index = () => {
 
             <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl">
               <CardHeader>
-                <Network className="w-10 h-10 text-orange-400 mb-4" />
+                <Users className="w-10 h-10 text-orange-400 mb-4" />
                 <CardTitle className="text-xl font-bold text-white">Multi-Platform Testing</CardTitle>
               </CardHeader>
               <CardContent>
@@ -372,10 +361,10 @@ const Index = () => {
         <section className="relative z-10 container mx-auto px-6 py-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
-              📊 DVCE vs OSCP vs CEH – Certification Comparison
+              📊 DVCE vs CEH – Certification Comparison
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              See how our DVCE certification compares to industry-standard certifications
+              See how our DVCE certification compares to the industry-standard CEH certification
             </p>
           </div>
 
@@ -384,14 +373,13 @@ const Index = () => {
               <Table className="w-full">
                 <TableHeader>
                   <TableRow className="border-slate-700 hover:bg-slate-800/50">
-                    <TableHead className="text-orange-400 font-bold text-lg w-1/4">Feature / Certification</TableHead>
+                    <TableHead className="text-orange-400 font-bold text-lg w-1/3">Feature / Certification</TableHead>
                     <TableHead className="text-orange-400 font-bold text-lg text-center">
                       <div className="flex items-center justify-center space-x-2">
                         <Trophy className="w-5 h-5" />
                         <span>DVCE</span>
                       </div>
                     </TableHead>
-                    <TableHead className="text-slate-300 font-bold text-lg text-center">OSCP</TableHead>
                     <TableHead className="text-slate-300 font-bold text-lg text-center">CEH</TableHead>
                   </TableRow>
                 </TableHeader>
@@ -415,7 +403,6 @@ const Index = () => {
                           <span className="text-white font-medium">{row.dvce}</span>
                         </div>
                       </TableCell>
-                      <TableCell className="text-center text-slate-300">{row.oscp}</TableCell>
                       <TableCell className="text-center text-slate-300">{row.ceh}</TableCell>
                     </TableRow>
                   ))}
@@ -425,7 +412,7 @@ const Index = () => {
           </div>
 
           {/* Summary Cards */}
-          <div className="grid md:grid-cols-3 gap-8 mt-16">
+          <div className="grid md:grid-cols-2 gap-8 mt-16">
             <Card className="bg-gradient-to-br from-green-900/50 to-green-800/50 border-green-600/30 backdrop-blur-xl transform hover:scale-105 transition-all duration-300">
               <CardHeader>
                 <div className="flex items-center space-x-3">
@@ -436,19 +423,6 @@ const Index = () => {
               <CardContent>
                 <p className="text-slate-300 mb-4">Need hands-on experience + affordable pricing?</p>
                 <Badge className="bg-green-500/20 text-green-300 border-green-500/30">✅ Choose DVCE</Badge>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-red-900/50 to-red-800/50 border-red-600/30 backdrop-blur-xl transform hover:scale-105 transition-all duration-300">
-              <CardHeader>
-                <div className="flex items-center space-x-3">
-                  <Zap className="w-8 h-8 text-red-400" />
-                  <CardTitle className="text-xl font-bold text-white">Want Hardcore Pentesting?</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-slate-300 mb-4">Need global recognition + extreme challenges?</p>
-                <Badge className="bg-red-500/20 text-red-300 border-red-500/30">🔥 Choose OSCP</Badge>
               </CardContent>
             </Card>
 
@@ -489,7 +463,7 @@ const Index = () => {
                     <Check className="w-6 h-6 text-green-400" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-white mb-2">More Affordable than OSCP & CEH</h4>
+                    <h4 className="text-lg font-bold text-white mb-2">More Affordable than CEH</h4>
                     <p className="text-slate-300">Get professional certification at a fraction of the cost</p>
                   </div>
                 </div>
@@ -500,7 +474,7 @@ const Index = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-white mb-2">Beginner-Friendly</h4>
-                    <p className="text-slate-300">Perfect stepping stone before attempting OSCP</p>
+                    <p className="text-slate-300">Perfect foundation for cybersecurity career</p>
                   </div>
                 </div>
               </div>

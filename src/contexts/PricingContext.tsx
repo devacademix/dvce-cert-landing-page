@@ -31,12 +31,9 @@ export const PricingProvider = ({ children }: PricingProviderProps) => {
 
   const convertPrice = (priceInINR: number) => {
     if (selectedCountry === "Pakistan") {
-      // Special pricing for Pakistan - 5000 PKR for one-time payment (2499 INR)
+      // Special pricing for Pakistan - only one-time payment
       if (priceInINR === 2499) return 5000; // One-time payment special price
       if (priceInINR === 14999) return 29999; // Original price for Pakistan
-      if (priceInINR === 3400) return 6800; // Installment total price
-      if (priceInINR === 19999) return 39999; // Original installment price
-      if (priceInINR === 499) return 999; // Advance payment
     }
     return Math.round(priceInINR * exchangeRate);
   };
