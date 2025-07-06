@@ -130,7 +130,7 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-slate-700/50 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
               <CardHeader>
                 <BookOpen className="w-10 h-10 text-orange-400 mb-4" />
                 <CardTitle className="text-xl font-bold text-white">8 Comprehensive Modules</CardTitle>
@@ -140,7 +140,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-slate-700/50 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
               <CardHeader>
                 <Target className="w-10 h-10 text-orange-400 mb-4" />
                 <CardTitle className="text-xl font-bold text-white">20+ Hands-on Labs</CardTitle>
@@ -150,7 +150,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-slate-700/50 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
               <CardHeader>
                 <Server className="w-10 h-10 text-orange-400 mb-4" />
                 <CardTitle className="text-xl font-bold text-white">Server Configuration</CardTitle>
@@ -160,7 +160,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-slate-700/50 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
               <CardHeader>
                 <Bot className="w-10 h-10 text-orange-400 mb-4" />
                 <CardTitle className="text-xl font-bold text-white">AI-Powered Assistant</CardTitle>
@@ -170,7 +170,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-slate-700/50 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
               <CardHeader>
                 <Briefcase className="w-10 h-10 text-orange-400 mb-4" />
                 <CardTitle className="text-xl font-bold text-white">1-Month Internship</CardTitle>
@@ -180,7 +180,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-slate-700/50 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
               <CardHeader>
                 <Wrench className="w-10 h-10 text-orange-400 mb-4" />
                 <CardTitle className="text-xl font-bold text-white">100+ Premium Tools</CardTitle>
@@ -194,7 +194,7 @@ const Index = () => {
 
         {/* Exam Format Section */}
         <section className="relative z-10 container mx-auto px-6 py-16">
-          <div className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 rounded-3xl p-12 backdrop-blur-xl border border-slate-700/50">
+          <div className="bg-slate-900/90 rounded-3xl p-12 backdrop-blur-xl border border-slate-700">
             <h2 className="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
               🧪 Exam Format
             </h2>
@@ -226,7 +226,7 @@ const Index = () => {
                 </div>
               </div>
               
-              <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-2xl p-8 border border-orange-500/30">
+              <div className="bg-slate-800/80 rounded-2xl p-8 border border-slate-600">
                 <h3 className="text-2xl font-bold text-white mb-6 text-center">Scoring Breakdown</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
@@ -255,7 +255,7 @@ const Index = () => {
           </h2>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-slate-700/50 backdrop-blur-xl">
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl">
               <CardHeader>
                 <Shield className="w-10 h-10 text-orange-400 mb-4" />
                 <CardTitle className="text-xl font-bold text-white">Standards Aligned</CardTitle>
@@ -265,7 +265,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-slate-700/50 backdrop-blur-xl">
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl">
               <CardHeader>
                 <Network className="w-10 h-10 text-orange-400 mb-4" />
                 <CardTitle className="text-xl font-bold text-white">Multi-Platform Testing</CardTitle>
@@ -275,7 +275,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-slate-700/50 backdrop-blur-xl">
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl">
               <CardHeader>
                 <Bug className="w-10 h-10 text-orange-400 mb-4" />
                 <CardTitle className="text-xl font-bold text-white">Bug Bounty Ready</CardTitle>
@@ -289,7 +289,7 @@ const Index = () => {
 
         {/* Rewards Section */}
         <section className="relative z-10 container mx-auto px-6 py-16">
-          <div className="bg-gradient-to-br from-purple-900/40 to-blue-900/40 rounded-3xl p-12 backdrop-blur-xl border border-purple-500/30">
+          <div className="bg-slate-900/90 rounded-3xl p-12 backdrop-blur-xl border border-slate-700">
             <h2 className="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
               🏆 Rewards & Recognition
             </h2>
