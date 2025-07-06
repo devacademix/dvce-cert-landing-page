@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,9 +7,12 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, CreditCard, Calendar, MessageCircle, Phone, ArrowLeft, Shield, Star, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { usePricing } from "@/contexts/PricingContext";
+import CountrySelector from "@/components/CountrySelector";
 
 const Enrollment = () => {
   const [paymentType, setPaymentType] = useState("onetime");
+  const { formatPrice, selectedCountry } = usePricing();
 
   const handlePayment = () => {
     const paymentUrl = paymentType === "onetime" 
@@ -22,6 +24,11 @@ const Enrollment = () => {
 
   const handleWhatsApp = () => {
     window.open("https://chat.whatsapp.com/JCOWIvdDQNuJIuGOIW49r6", '_blank');
+  };
+
+  const handleCountrySelect = (country: string, currency: string, exchangeRate: number) => {
+    // You can perform additional actions here if needed when the country is selected.
+    // For example, update some state or trigger a re-render.
   };
 
   return (
@@ -67,7 +74,7 @@ const Enrollment = () => {
             {/* Course Info */}
             <div className="text-center mb-12">
               <Badge className="bg-orange-500/20 text-orange-400 border-orange-500/30 px-4 py-2 text-sm font-semibold mb-4">
-                LIMITED TIME OFFER
+                LIMITED TIME OFFER - {selectedCountry}
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 Enroll in <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">DVCE Certification</span>
@@ -120,8 +127,8 @@ const Enrollment = () => {
                         
                         <div className="text-right">
                           <div className="flex items-baseline space-x-2 mb-2">
-                            <span className="text-4xl font-bold text-orange-400">₹2,499</span>
-                            <span className="text-lg text-slate-400 line-through">₹14,999</span>
+                            <span className="text-4xl font-bold text-orange-400">{formatPrice(2499)}</span>
+                            <span className="text-lg text-slate-400 line-through">{formatPrice(14999)}</span>
                           </div>
                           <Badge className="bg-red-500/20 text-red-400 border-red-500/30 text-sm px-3 py-1">
                             83% OFF
@@ -163,13 +170,13 @@ const Enrollment = () => {
                         
                         <div className="text-right">
                           <div className="flex items-baseline space-x-2 mb-2">
-                            <span className="text-4xl font-bold text-blue-400">₹3,400</span>
-                            <span className="text-lg text-slate-400 line-through">₹19,999</span>
+                            <span className="text-4xl font-bold text-blue-400">{formatPrice(3400)}</span>
+                            <span className="text-lg text-slate-400 line-through">{formatPrice(19999)}</span>
                           </div>
                           <Badge className="bg-red-500/20 text-red-400 border-red-500/30 text-sm px-3 py-1">
                             83% OFF
                           </Badge>
-                          <p className="text-sm text-slate-400 mt-2">Advance: ₹499</p>
+                          <p className="text-sm text-slate-400 mt-2">Advance: {formatPrice(499)}</p>
                         </div>
                       </div>
                     </Label>
@@ -225,7 +232,7 @@ const Enrollment = () => {
                     className="flex-1 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold text-xl px-12 py-6 rounded-2xl shadow-2xl hover:shadow-orange-500/30 transition-all duration-300 transform hover:scale-[1.02]"
                   >
                     <CreditCard className="w-6 h-6 mr-3" />
-                    {paymentType === "onetime" ? "Secure Payment - ₹2,499" : "Pay Advance - ₹499"}
+                    {paymentType === "onetime" ? `Secure Payment - ${formatPrice(2499)}` : `Pay Advance - ${formatPrice(499)}`}
                     <Zap className="w-5 h-5 ml-2" />
                   </Button>
                   
@@ -279,6 +286,8 @@ const Enrollment = () => {
           </div>
         </div>
       </div>
+
+      <CountrySelector onCountrySelect={handleCountrySelect} />
     </>
   );
 };
