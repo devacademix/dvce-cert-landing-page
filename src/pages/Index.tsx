@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { CheckCircle, Star, Users, Award, Clock, Shield, Target, BookOpen, Wrench, FileText, Trophy, Server, Bot, Briefcase, Users2, Globe, TrendingUp, MessageCircle, Check, ArrowRight, Flag, Bug, Calendar } from "lucide-react";
+import { CheckCircle, Star, Users, Award, Clock, Shield, Target, BookOpen, Wrench, FileText, Trophy, Server, Bot, Briefcase, Users2, Globe, TrendingUp, MessageCircle, Check, ArrowRight, Flag, Bug, Calendar, Code, HeadphonesIcon, GraduationCap, UserCheck, FileCheck, Infinity } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import CountrySelector from "@/components/CountrySelector";
@@ -120,13 +120,17 @@ const Index = () => {
                 <p className="text-sm text-slate-300 font-medium">Professional Cybersecurity Training</p>
               </div>
             </Link>
-            <Button 
-              onClick={() => window.open("https://chat.whatsapp.com/JCOWIvdDQNuJIuGOIW49r6", '_blank')}
-              className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-bold px-8 py-3 rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
-            >
-              <MessageCircle className="w-5 h-5 mr-3" />
-              WhatsApp Support
-            </Button>
+            <nav className="hidden md:flex items-center space-x-6">
+              <Link to="/team" className="text-slate-300 hover:text-orange-400 transition-colors">Team</Link>
+              <Link to="/winners" className="text-slate-300 hover:text-orange-400 transition-colors">Top Winners</Link>
+              <Button 
+                onClick={() => window.open("https://chat.whatsapp.com/JCOWIvdDQNuJIuGOIW49r6", '_blank')}
+                className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-bold px-8 py-3 rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+              >
+                <MessageCircle className="w-5 h-5 mr-3" />
+                WhatsApp Support
+              </Button>
+            </nav>
           </div>
         </header>
 
@@ -171,24 +175,17 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Right Column */}
-            <div className="relative">
+            {/* Right Column - Full Logo Only */}
+            <div className="relative flex justify-center items-center">
               <div className="relative transform hover:scale-105 transition-transform duration-500">
-                <img 
-                  src="/lovable-uploads/59c9963b-9494-46e8-935a-a44999199693.png" 
-                  alt="Cybersecurity Expert" 
-                  className="w-full rounded-3xl shadow-2xl border border-slate-700/50"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent rounded-3xl"></div>
-                <div className="absolute bottom-6 left-6 right-6 flex justify-center">
-                  <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-xl rounded-2xl p-6 border border-orange-500/30">
-                    <img 
-                      src="/lovable-uploads/d12e9913-d9e0-4d7b-a9ba-452f0373064a.png" 
-                      alt="DevAcademix Logo" 
-                      className="w-20 h-20 md:w-24 md:h-24 object-contain mx-auto"
-                    />
-                  </div>
+                <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-xl rounded-3xl p-12 border border-orange-500/30">
+                  <img 
+                    src="/lovable-uploads/d12e9913-d9e0-4d7b-a9ba-452f0373064a.png" 
+                    alt="DevAcademix Logo" 
+                    className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 object-contain mx-auto filter drop-shadow-2xl"
+                  />
                 </div>
+                <div className="absolute -inset-4 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-3xl blur-2xl animate-pulse"></div>
               </div>
             </div>
           </div>
@@ -245,6 +242,16 @@ const Index = () => {
 
             <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
               <CardHeader>
+                <HeadphonesIcon className="w-10 h-10 text-orange-400 mb-4" />
+                <CardTitle className="text-xl font-bold text-white">24x7 WhatsApp Support</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-300">Round-the-clock assistance through WhatsApp support.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+              <CardHeader>
                 <Briefcase className="w-10 h-10 text-orange-400 mb-4" />
                 <CardTitle className="text-xl font-bold text-white">1-Month Internship</CardTitle>
               </CardHeader>
@@ -260,6 +267,66 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-300">Access to professional penetration testing and security tools.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+              <CardHeader>
+                <Code className="w-10 h-10 text-orange-400 mb-4" />
+                <CardTitle className="text-xl font-bold text-white">100+ Custom Scripts</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-300">Access to custom scripts for Social Engineering Toolkit (SET).</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+              <CardHeader>
+                <Calendar className="w-10 h-10 text-orange-400 mb-4" />
+                <CardTitle className="text-xl font-bold text-white">3 Months Live Classes</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-300">Live online classes: 1 class/week for 4 weeks/month.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+              <CardHeader>
+                <GraduationCap className="w-10 h-10 text-orange-400 mb-4" />
+                <CardTitle className="text-xl font-bold text-white">Certificate of Completion</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-300">Official certificate upon successful completion of the program.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+              <CardHeader>
+                <FileCheck className="w-10 h-10 text-orange-400 mb-4" />
+                <CardTitle className="text-xl font-bold text-white">Internship Certificate</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-300">Internship offer letter and completion certificate included.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+              <CardHeader>
+                <UserCheck className="w-10 h-10 text-orange-400 mb-4" />
+                <CardTitle className="text-xl font-bold text-white">Proof of Recommendation</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-300">Professional recommendation for LinkedIn and CV enhancement.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+              <CardHeader>
+                <Infinity className="w-10 h-10 text-orange-400 mb-4" />
+                <CardTitle className="text-xl font-bold text-white">Lifetime Access</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-300">Lifetime access to all recorded sessions and course materials.</p>
               </CardContent>
             </Card>
           </div>
