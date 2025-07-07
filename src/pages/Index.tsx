@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -182,9 +181,16 @@ const Index = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent rounded-3xl"></div>
                 <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-xl rounded-2xl p-6 border border-orange-500/30">
-                    <h3 className="text-2xl font-bold mb-2 text-white">DVCE Certification</h3>
-                    <p className="text-slate-300 text-lg">First Batch: 25th July 2025</p>
+                  <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-xl rounded-2xl p-6 border border-orange-500/30 flex items-center justify-center space-x-4">
+                    <img 
+                      src="/lovable-uploads/d12e9913-d9e0-4d7b-a9ba-452f0373064a.png" 
+                      alt="DevAcademix Logo" 
+                      className="w-12 h-12 object-contain"
+                    />
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2 text-white">DVCE Certification</h3>
+                      <p className="text-slate-300 text-lg">Professional Cybersecurity Training</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -559,8 +565,8 @@ const Index = () => {
             </div>
             <div className="transform hover:scale-105 transition-transform duration-300">
               <Calendar className="w-12 h-12 text-orange-400 mx-auto mb-4" />
-              <h2 className="text-4xl font-bold text-white">25 July</h2>
-              <p className="text-slate-400 text-lg">First Batch Starts</p>
+              <h2 className="text-4xl font-bold text-white">Starting</h2>
+              <p className="text-slate-400 text-lg">Soon</p>
             </div>
             <div className="transform hover:scale-105 transition-transform duration-300">
               <Clock className="w-12 h-12 text-orange-400 mx-auto mb-4" />
