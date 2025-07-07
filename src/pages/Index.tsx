@@ -180,17 +180,13 @@ const Index = () => {
                   className="w-full rounded-3xl shadow-2xl border border-slate-700/50"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent rounded-3xl"></div>
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-xl rounded-2xl p-6 border border-orange-500/30 flex items-center justify-center space-x-4">
+                <div className="absolute bottom-6 left-6 right-6 flex justify-center">
+                  <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-xl rounded-2xl p-6 border border-orange-500/30">
                     <img 
                       src="/lovable-uploads/d12e9913-d9e0-4d7b-a9ba-452f0373064a.png" 
                       alt="DevAcademix Logo" 
-                      className="w-12 h-12 object-contain"
+                      className="w-20 h-20 md:w-24 md:h-24 object-contain mx-auto"
                     />
-                    <div>
-                      <h3 className="text-2xl font-bold mb-2 text-white">DVCE Certification</h3>
-                      <p className="text-slate-300 text-lg">Professional Cybersecurity Training</p>
-                    </div>
                   </div>
                 </div>
               </div>

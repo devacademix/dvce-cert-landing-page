@@ -1,10 +1,12 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, CreditCard, Calendar, MessageCircle, Phone, ArrowLeft, Shield, Star, Zap } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { CheckCircle, CreditCard, Calendar, MessageCircle, Phone, ArrowLeft, Shield, Star, Zap, Percent, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { usePricing } from "@/contexts/PricingContext";
@@ -12,9 +14,77 @@ import CountrySelector from "@/components/CountrySelector";
 
 const Enrollment = () => {
   const [paymentType, setPaymentType] = useState("onetime");
+  const [couponCode, setCouponCode] = useState("");
+  const [appliedCoupon, setAppliedCoupon] = useState<string | null>(null);
+  const [couponError, setCouponError] = useState("");
   const { formatPrice, selectedCountry } = usePricing();
 
+  const getOriginalPrices = () => {
+    if (selectedCountry === "Pakistan") {
+      return {
+        onetime: { original: 25000, discounted: 5000 },
+        installment: { original: 25000, discounted: 5000, advance: 1000 }
+      };
+    }
+    return {
+      onetime: { original: 16999, discounted: 2499 },
+      installment: { original: 19999, discounted: 3000, advance: 499 }
+    };
+  };
+
+  const applyCoupon = () => {
+    setCouponError("");
+    const upperCoupon = couponCode.toUpperCase();
+    
+    if (selectedCountry === "Pakistan") {
+      if (upperCoupon === "PUK60") {
+        setAppliedCoupon(upperCoupon);
+        setCouponCode("");
+      } else {
+        setCouponError("Invalid coupon code for Pakistan");
+      }
+    } else {
+      if (upperCoupon === "DEV60") {
+        setAppliedCoupon(upperCoupon);
+        setCouponCode("");
+      } else {
+        setCouponError("Invalid coupon code");
+      }
+    }
+  };
+
+  const removeCoupon = () => {
+    setAppliedCoupon(null);
+    setCouponError("");
+  };
+
+  const getCurrentPrices = () => {
+    const prices = getOriginalPrices();
+    
+    if (appliedCoupon) {
+      return prices;
+    }
+    
+    // Without coupon, show original prices
+    if (selectedCountry === "Pakistan") {
+      return {
+        onetime: { original: 25000, discounted: 25000 },
+        installment: { original: 25000, discounted: 25000, advance: 1000 }
+      };
+    }
+    return {
+      onetime: { original: 16999, discounted: 16999 },
+      installment: { original: 19999, discounted: 19999, advance: 499 }
+    };
+  };
+
+  const currentPrices = getCurrentPrices();
+
   const handlePayment = () => {
+    const finalAmount = paymentType === "onetime" 
+      ? currentPrices.onetime.discounted
+      : currentPrices.installment.advance;
+    
     const paymentUrl = paymentType === "onetime" 
       ? "https://rzp.io/rzp/PW0kNVe"
       : "https://rzp.io/rzp/2UXjVg5y";
@@ -27,8 +97,10 @@ const Enrollment = () => {
   };
 
   const handleCountrySelect = (country: string, currency: string, exchangeRate: number) => {
-    // You can perform additional actions here if needed when the country is selected.
-    // For example, update some state or trigger a re-render.
+    // Reset coupon when country changes
+    setAppliedCoupon(null);
+    setCouponCode("");
+    setCouponError("");
   };
 
   return (
@@ -84,6 +156,60 @@ const Enrollment = () => {
               </p>
             </div>
 
+            {/* Coupon Section */}
+            <Card className="bg-slate-800/30 border-slate-700/50 mb-8 backdrop-blur-sm">
+              <CardHeader className="text-center pb-4">
+                <CardTitle className="text-2xl font-bold text-white flex items-center justify-center gap-2">
+                  <Percent className="w-6 h-6 text-orange-400" />
+                  Apply Coupon Code
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {!appliedCoupon ? (
+                  <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <Input
+                      type="text"
+                      placeholder={selectedCountry === "Pakistan" ? "Enter PUK60" : "Enter DEV60"}
+                      value={couponCode}
+                      onChange={(e) => setCouponCode(e.target.value)}
+                      className="bg-slate-700/50 border-slate-600 text-white placeholder-slate-400"
+                    />
+                    <Button
+                      onClick={applyCoupon}
+                      className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 px-8"
+                    >
+                      Apply
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center gap-4 bg-green-500/20 border border-green-500/30 rounded-lg p-4 max-w-md mx-auto">
+                    <Badge className="bg-green-500/30 text-green-300 border-green-500/50">
+                      {appliedCoupon} Applied
+                    </Badge>
+                    <Button
+                      onClick={removeCoupon}
+                      variant="ghost"
+                      size="sm"
+                      className="text-red-400 hover:text-red-300 hover:bg-red-500/20"
+                    >
+                      <X className="w-4 h-4" />
+                    </Button>
+                  </div>
+                )}
+                {couponError && (
+                  <p className="text-red-400 text-center mt-2 text-sm">{couponError}</p>
+                )}
+                <div className="text-center mt-4">
+                  <p className="text-slate-400 text-sm">
+                    {selectedCountry === "Pakistan" 
+                      ? "Use code PUK60 for 80% discount" 
+                      : "Use code DEV60 for 85% discount"
+                    }
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* Professional Payment Options */}
             <Card className="bg-slate-800/30 border-slate-700/50 mb-8 backdrop-blur-sm">
               <CardHeader className="text-center pb-6">
@@ -127,60 +253,79 @@ const Enrollment = () => {
                         
                         <div className="text-right">
                           <div className="flex items-baseline space-x-2 mb-2">
-                            <span className="text-4xl font-bold text-orange-400">{formatPrice(2499)}</span>
-                            <span className="text-lg text-slate-400 line-through">{formatPrice(14999)}</span>
+                            <span className="text-4xl font-bold text-orange-400">
+                              {formatPrice(currentPrices.onetime.discounted)}
+                            </span>
+                            {appliedCoupon && (
+                              <span className="text-lg text-slate-400 line-through">
+                                {formatPrice(currentPrices.onetime.original)}
+                              </span>
+                            )}
                           </div>
-                          <Badge className="bg-red-500/20 text-red-400 border-red-500/30 text-sm px-3 py-1">
-                            83% OFF
-                          </Badge>
+                          {appliedCoupon && (
+                            <Badge className="bg-red-500/20 text-red-400 border-red-500/30 text-sm px-3 py-1">
+                              {selectedCountry === "Pakistan" ? "80% OFF" : "85% OFF"}
+                            </Badge>
+                          )}
                         </div>
                       </div>
                     </Label>
                   </div>
 
-                  {/* Installment Payment - Professional Layout */}
-                  <div className={`relative p-8 rounded-2xl border-2 transition-all duration-300 cursor-pointer ${
-                    paymentType === "installment" 
-                      ? "border-blue-500 bg-gradient-to-br from-blue-500/10 to-purple-500/5 shadow-2xl shadow-blue-500/20" 
-                      : "border-slate-600/50 bg-slate-800/20 hover:border-blue-500/30"
-                  }`}>
-                    <div className="absolute top-4 right-4">
-                      <RadioGroupItem value="installment" id="installment" className="w-6 h-6" />
-                    </div>
-                    
-                    <Label htmlFor="installment" className="cursor-pointer block">
-                      <div className="flex items-start justify-between mb-6">
-                        <div className="flex items-center space-x-4">
-                          <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl">
-                            <Calendar className="w-8 h-8 text-white" />
-                          </div>
-                          <div>
-                            <h3 className="text-2xl font-bold text-white mb-1">Flexible Payment Plan</h3>
-                            <p className="text-slate-400">Pay in installments - Start with advance payment</p>
-                            <div className="flex items-center space-x-2 mt-2">
-                              <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 text-xs px-2 py-1">
-                                FLEXIBLE
-                              </Badge>
-                              <Badge className="bg-yellow-500/20 text-yellow-400 border-yellow-500/30 text-xs px-2 py-1">
-                                LOW UPFRONT
-                              </Badge>
+                  {selectedCountry !== "Pakistan" && (
+                    <div className={`relative p-8 rounded-2xl border-2 transition-all duration-300 cursor-pointer ${
+                      paymentType === "installment" 
+                        ? "border-blue-500 bg-gradient-to-br from-blue-500/10 to-purple-500/5 shadow-2xl shadow-blue-500/20" 
+                        : "border-slate-600/50 bg-slate-800/20 hover:border-blue-500/30"
+                    }`}>
+                      <div className="absolute top-4 right-4">
+                        <RadioGroupItem value="installment" id="installment" className="w-6 h-6" />
+                      </div>
+                      
+                      <Label htmlFor="installment" className="cursor-pointer block">
+                        <div className="flex items-start justify-between mb-6">
+                          <div className="flex items-center space-x-4">
+                            <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl">
+                              <Calendar className="w-8 h-8 text-white" />
+                            </div>
+                            <div>
+                              <h3 className="text-2xl font-bold text-white mb-1">Flexible Payment Plan</h3>
+                              <p className="text-slate-400">Pay in installments - Start with advance payment</p>
+                              <div className="flex items-center space-x-2 mt-2">
+                                <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 text-xs px-2 py-1">
+                                  FLEXIBLE
+                                </Badge>
+                                <Badge className="bg-yellow-500/20 text-yellow-400 border-yellow-500/30 text-xs px-2 py-1">
+                                  LOW UPFRONT
+                                </Badge>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        
-                        <div className="text-right">
-                          <div className="flex items-baseline space-x-2 mb-2">
-                            <span className="text-4xl font-bold text-blue-400">{formatPrice(3400)}</span>
-                            <span className="text-lg text-slate-400 line-through">{formatPrice(19999)}</span>
+                          
+                          <div className="text-right">
+                            <div className="flex items-baseline space-x-2 mb-2">
+                              <span className="text-4xl font-bold text-blue-400">
+                                {formatPrice(currentPrices.installment.discounted)}
+                              </span>
+                              {appliedCoupon && (
+                                <span className="text-lg text-slate-400 line-through">
+                                  {formatPrice(currentPrices.installment.original)}
+                                </span>
+                              )}
+                            </div>
+                            {appliedCoupon && (
+                              <Badge className="bg-red-500/20 text-red-400 border-red-500/30 text-sm px-3 py-1">
+                                85% OFF
+                              </Badge>
+                            )}
+                            <p className="text-sm text-slate-400 mt-2">
+                              Advance: {formatPrice(currentPrices.installment.advance)}
+                            </p>
                           </div>
-                          <Badge className="bg-red-500/20 text-red-400 border-red-500/30 text-sm px-3 py-1">
-                            83% OFF
-                          </Badge>
-                          <p className="text-sm text-slate-400 mt-2">Advance: {formatPrice(499)}</p>
                         </div>
-                      </div>
-                    </Label>
-                  </div>
+                      </Label>
+                    </div>
+                  )}
                 </RadioGroup>
 
                 {/* Payment Benefits */}
@@ -232,7 +377,10 @@ const Enrollment = () => {
                     className="flex-1 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold text-xl px-12 py-6 rounded-2xl shadow-2xl hover:shadow-orange-500/30 transition-all duration-300 transform hover:scale-[1.02]"
                   >
                     <CreditCard className="w-6 h-6 mr-3" />
-                    {paymentType === "onetime" ? `Secure Payment - ${formatPrice(2499)}` : `Pay Advance - ${formatPrice(499)}`}
+                    {paymentType === "onetime" 
+                      ? `Secure Payment - ${formatPrice(currentPrices.onetime.discounted)}` 
+                      : `Pay Advance - ${formatPrice(currentPrices.installment.advance)}`
+                    }
                     <Zap className="w-5 h-5 ml-2" />
                   </Button>
                   
