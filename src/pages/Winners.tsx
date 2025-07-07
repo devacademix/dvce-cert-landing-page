@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Trophy, Star, Award, Medal, Crown } from "lucide-react";
+import { Trophy, Star, Award, Medal, Crown, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
@@ -118,6 +118,52 @@ const Winners = () => {
             <p className="text-xl text-slate-400 leading-relaxed max-w-3xl mx-auto">
               Celebrating the outstanding performers of our DVCE certification program. These champions have demonstrated exceptional skills in cybersecurity and ethical hacking.
             </p>
+          </div>
+
+          {/* White Hat Badge Section */}
+          <div className="mb-16">
+            <div className="bg-gradient-to-r from-white/5 to-blue-500/10 rounded-3xl p-8 border border-white/20 backdrop-blur-xl">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-white/20 to-blue-500/20 rounded-full mb-6">
+                  <Shield className="w-10 h-10 text-white" />
+                </div>
+                <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-400 mb-4">
+                  White Hat Badge
+                </h2>
+                <p className="text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                  Earn the prestigious White Hat Badge by demonstrating ethical hacking skills and completing our DVCE certification program with excellence.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-3 gap-6">
+                <Card className="bg-white/5 border-white/20 backdrop-blur-sm">
+                  <CardHeader className="text-center">
+                    <Shield className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+                    <CardTitle className="text-white">Ethical Excellence</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-300 text-center">Demonstrate responsible disclosure and ethical hacking practices</p>
+                  </CardContent>
+                </Card>
+                <Card className="bg-white/5 border-white/20 backdrop-blur-sm">
+                  <CardHeader className="text-center">
+                    <Trophy className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
+                    <CardTitle className="text-white">Technical Mastery</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-300 text-center">Complete all 8 modules with distinction and pass the final exam</p>
+                  </CardContent>
+                </Card>
+                <Card className="bg-white/5 border-white/20 backdrop-blur-sm">
+                  <CardHeader className="text-center">
+                    <Award className="w-12 h-12 text-green-400 mx-auto mb-4" />
+                    <CardTitle className="text-white">Industry Recognition</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-300 text-center">Gain recognition from cybersecurity professionals and employers</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
 
           {/* Notice */}
