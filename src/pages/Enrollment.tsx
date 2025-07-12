@@ -27,8 +27,8 @@ const Enrollment = () => {
       };
     }
     return {
-      onetime: { original: 16999, discounted: 2499 },
-      installment: { original: 19999, discounted: 3000, advance: 499 }
+      onetime: { original: 16999, discounted: 2500 },
+      installment: { original: 19999, discounted: 3000, advance: 500 }
     };
   };
 
@@ -74,7 +74,7 @@ const Enrollment = () => {
     }
     return {
       onetime: { original: 16999, discounted: 16999 },
-      installment: { original: 19999, discounted: 19999, advance: 499 }
+      installment: { original: 19999, discounted: 19999, advance: 500 }
     };
   };
 
