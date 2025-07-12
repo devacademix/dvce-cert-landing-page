@@ -14,7 +14,9 @@ const Team = () => {
       specialization: "CEH Bug Bounty Trainer",
       icon: <Award className="w-8 h-8 text-orange-400" />,
       description: "Certified Ethical Hacker and Bug Bounty expert with extensive experience in cybersecurity training.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+      gradient: "from-orange-500/20 to-red-500/20",
+      borderColor: "border-orange-500/50"
     },
     {
       name: "Pulkit",
@@ -22,7 +24,9 @@ const Team = () => {
       specialization: "AI Engineer",
       icon: <Code className="w-8 h-8 text-blue-400" />,
       description: "Chief Technology Officer specializing in AI and machine learning solutions for cybersecurity.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+      gradient: "from-blue-500/20 to-purple-500/20",
+      borderColor: "border-blue-500/50"
     },
     {
       name: "Dask",
@@ -30,7 +34,9 @@ const Team = () => {
       specialization: "Penetration Testing",
       icon: <Shield className="w-8 h-8 text-green-400" />,
       description: "Expert security engineer with deep knowledge in penetration testing and vulnerability assessment.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face"
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
+      gradient: "from-green-500/20 to-emerald-500/20",
+      borderColor: "border-green-500/50"
     },
     {
       name: "Yash",
@@ -38,7 +44,9 @@ const Team = () => {
       specialization: "Ethical Hacker Trainer",
       icon: <Bug className="w-8 h-8 text-red-400" />,
       description: "Experienced ethical hacker and trainer specializing in advanced cybersecurity techniques.",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face"
+      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face",
+      gradient: "from-red-500/20 to-pink-500/20",
+      borderColor: "border-red-500/50"
     },
     {
       name: "Priyanshu",
@@ -46,7 +54,9 @@ const Team = () => {
       specialization: "Content Creation",
       icon: <Video className="w-8 h-8 text-purple-400" />,
       description: "Professional video editor creating engaging educational content for cybersecurity training.",
-      image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400&h=400&fit=crop&crop=face"
+      image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400&h=400&fit=crop&crop=face",
+      gradient: "from-purple-500/20 to-indigo-500/20",
+      borderColor: "border-purple-500/50"
     },
     {
       name: "Priyanshu",
@@ -54,7 +64,9 @@ const Team = () => {
       specialization: "Digital Marketing",
       icon: <Share2 className="w-8 h-8 text-pink-400" />,
       description: "Social media management expert handling digital marketing and community engagement.",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face"
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face",
+      gradient: "from-pink-500/20 to-rose-500/20",
+      borderColor: "border-pink-500/50"
     }
   ];
 
@@ -93,6 +105,7 @@ const Team = () => {
             </Link>
             <nav className="hidden md:flex items-center space-x-6">
               <Link to="/" className="text-slate-300 hover:text-orange-400 transition-colors">Home</Link>
+              <Link to="/curriculum" className="text-slate-300 hover:text-orange-400 transition-colors">Curriculum</Link>
               <Link to="/winners" className="text-slate-300 hover:text-orange-400 transition-colors">Top Winners</Link>
               <Button 
                 onClick={() => window.open("https://chat.whatsapp.com/JCOWIvdDQNuJIuGOIW49r6", '_blank')}
@@ -126,23 +139,41 @@ const Team = () => {
           {/* Team Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <Card key={index} className="bg-slate-900/90 border-slate-700 backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+              <Card key={index} className={`bg-gradient-to-br ${member.gradient} border ${member.borderColor} backdrop-blur-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20`}>
                 <CardHeader className="text-center">
                   <div className="relative mx-auto mb-6">
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-24 h-24 rounded-full object-cover border-4 border-orange-500/30"
-                    />
-                    <div className="absolute -bottom-2 -right-2 bg-slate-800 rounded-full p-2 border-2 border-slate-700">
-                      {member.icon}
+                    {/* Enhanced image styling with multiple layers */}
+                    <div className="relative">
+                      {/* Outer glow ring */}
+                      <div className={`absolute -inset-4 bg-gradient-to-br ${member.gradient} rounded-full blur-xl opacity-50 animate-pulse`}></div>
+                      
+                      {/* Main image container */}
+                      <div className={`relative w-32 h-32 rounded-full border-4 ${member.borderColor} overflow-hidden shadow-2xl`}>
+                        <img 
+                          src={member.image} 
+                          alt={member.name}
+                          className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                        />
+                        {/* Gradient overlay */}
+                        <div className={`absolute inset-0 bg-gradient-to-t ${member.gradient} opacity-20`}></div>
+                      </div>
+
+                      {/* Floating icon badge */}
+                      <div className={`absolute -bottom-2 -right-2 bg-slate-800 rounded-full p-3 border-2 ${member.borderColor} shadow-lg`}>
+                        {member.icon}
+                      </div>
+                      
+                      {/* Decorative elements */}
+                      <div className="absolute -top-2 -left-2 w-6 h-6 bg-gradient-to-br from-orange-400 to-red-400 rounded-full opacity-80 animate-bounce delay-300"></div>
+                      <div className="absolute -bottom-1 -left-3 w-4 h-4 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full opacity-60 animate-bounce delay-700"></div>
                     </div>
                   </div>
-                  <CardTitle className="text-xl font-bold text-white mb-2">{member.name}</CardTitle>
-                  <Badge className="bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 border-orange-500/30 mb-2">
+                  
+                  <CardTitle className="text-2xl font-bold text-white mb-3">{member.name}</CardTitle>
+                  <Badge className={`bg-gradient-to-r ${member.gradient} text-white border ${member.borderColor} mb-3 px-4 py-1`}>
                     {member.role}
                   </Badge>
-                  <p className="text-sm text-slate-400 font-medium">{member.specialization}</p>
+                  <p className="text-sm text-slate-300 font-medium bg-slate-800/30 rounded-full px-4 py-2">{member.specialization}</p>
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-300 text-center leading-relaxed">{member.description}</p>
@@ -162,12 +193,12 @@ const Team = () => {
                   Enroll Now
                 </Button>
               </Link>
-              <Link to="/">
+              <Link to="/curriculum">
                 <Button 
                   variant="outline" 
                   className="border-2 border-orange-500/50 text-orange-400 hover:bg-orange-500/10 hover:border-orange-400 font-bold text-xl px-8 py-6 rounded-full backdrop-blur-sm"
                 >
-                  Back to Home
+                  View Curriculum
                 </Button>
               </Link>
             </div>
