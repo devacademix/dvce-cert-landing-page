@@ -34,21 +34,21 @@ const Enrollment = () => {
 
   const applyCoupon = () => {
     setCouponError("");
-    const upperCoupon = couponCode.toUpperCase();
+    const upperCoupon = couponCode.trim().toUpperCase();
     
     if (selectedCountry === "Pakistan") {
       if (upperCoupon === "PUK60") {
         setAppliedCoupon(upperCoupon);
         setCouponCode("");
       } else {
-        setCouponError("Invalid coupon code for Pakistan");
+        setCouponError("Invalid coupon code for Pakistan. Use PUK60");
       }
     } else {
       if (upperCoupon === "DEV60") {
         setAppliedCoupon(upperCoupon);
         setCouponCode("");
       } else {
-        setCouponError("Invalid coupon code");
+        setCouponError("Invalid coupon code. Use DEV60");
       }
     }
   };
@@ -81,13 +81,17 @@ const Enrollment = () => {
   const currentPrices = getCurrentPrices();
 
   const handlePayment = () => {
-    const finalAmount = paymentType === "onetime" 
-      ? currentPrices.onetime.discounted
-      : currentPrices.installment.advance;
+    let paymentUrl = "";
     
-    const paymentUrl = paymentType === "onetime" 
-      ? "https://rzp.io/rzp/PW0kNVe"
-      : "https://rzp.io/rzp/2UXjVg5y";
+    if (paymentType === "onetime") {
+      if (selectedCountry === "Pakistan") {
+        paymentUrl = "https://rzp.io/rzp/DVCE-Puk";
+      } else {
+        paymentUrl = "https://rzp.io/rzp/one-time-dvce";
+      }
+    } else {
+      paymentUrl = "https://rzp.io/rzp/devacademix-DVEC";
+    }
     
     window.open(paymentUrl, '_blank');
   };
@@ -173,10 +177,16 @@ const Enrollment = () => {
                       value={couponCode}
                       onChange={(e) => setCouponCode(e.target.value)}
                       className="bg-slate-700/50 border-slate-600 text-white placeholder-slate-400"
+                      onKeyPress={(e) => {
+                        if (e.key === 'Enter') {
+                          applyCoupon();
+                        }
+                      }}
                     />
                     <Button
                       onClick={applyCoupon}
-                      className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 px-8"
+                      disabled={!couponCode.trim()}
+                      className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 px-8 disabled:opacity-50"
                     >
                       Apply
                     </Button>
@@ -184,7 +194,7 @@ const Enrollment = () => {
                 ) : (
                   <div className="flex items-center justify-center gap-4 bg-green-500/20 border border-green-500/30 rounded-lg p-4 max-w-md mx-auto">
                     <Badge className="bg-green-500/30 text-green-300 border-green-500/50">
-                      {appliedCoupon} Applied
+                      {appliedCoupon} Applied ✓
                     </Badge>
                     <Button
                       onClick={removeCoupon}
