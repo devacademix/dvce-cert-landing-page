@@ -105,7 +105,10 @@ const Enrollment = () => {
                 Enroll in <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">DVCE Certification</span>
               </h1>
               <p className="text-xl text-slate-300 mb-8">
-                Choose your preferred payment option and start your cybersecurity journey today
+                {selectedCountry === "Pakistan" 
+                  ? "Special pricing for Pakistan - One-time payment only" 
+                  : "Choose your preferred payment option and start your cybersecurity journey today"
+                }
               </p>
               <div className="flex justify-center items-center space-x-4 mb-8">
                 <Badge className="bg-red-500/20 text-red-400 border-red-500/30 text-xl px-6 py-2">
@@ -121,9 +124,14 @@ const Enrollment = () => {
             <Card className="bg-slate-800/40 border-slate-700/50 mb-8 backdrop-blur-sm shadow-2xl">
               <CardHeader className="text-center pb-6">
                 <CardTitle className="text-4xl font-bold text-white mb-4">
-                  Choose Your Investment Plan
+                  {selectedCountry === "Pakistan" ? "Pakistan Special Offer" : "Choose Your Investment Plan"}
                 </CardTitle>
-                <p className="text-slate-300 text-lg">Professional certification program with flexible payment options</p>
+                <p className="text-slate-300 text-lg">
+                  {selectedCountry === "Pakistan" 
+                    ? "Exclusive one-time payment offer for Pakistan" 
+                    : "Professional certification program with flexible payment options"
+                  }
+                </p>
               </CardHeader>
               <CardContent className="space-y-8">
                 <RadioGroup value={paymentType} onValueChange={setPaymentType} className="space-y-8">
@@ -137,7 +145,7 @@ const Enrollment = () => {
                     {/* Popular Badge */}
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                       <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg">
-                        🌟 MOST POPULAR
+                        {selectedCountry === "Pakistan" ? "🇵🇰 PAKISTAN SPECIAL" : "🌟 MOST POPULAR"}
                       </Badge>
                     </div>
                     
@@ -152,8 +160,15 @@ const Enrollment = () => {
                             <Shield className="w-12 h-12 text-white" />
                           </div>
                           <div className="text-center lg:text-left">
-                            <h3 className="text-3xl font-bold text-white mb-2">Complete Access Plan</h3>
-                            <p className="text-slate-300 text-lg mb-4">Full program access with one-time payment</p>
+                            <h3 className="text-3xl font-bold text-white mb-2">
+                              {selectedCountry === "Pakistan" ? "Pakistan Complete Access" : "Complete Access Plan"}
+                            </h3>
+                            <p className="text-slate-300 text-lg mb-4">
+                              {selectedCountry === "Pakistan" 
+                                ? "Full program access - Special price for Pakistan" 
+                                : "Full program access with one-time payment"
+                              }
+                            </p>
                             <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                               <Badge className="bg-green-500/20 text-green-400 border-green-500/30 px-3 py-1">
                                 BEST VALUE
@@ -161,6 +176,11 @@ const Enrollment = () => {
                               <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30 px-3 py-1">
                                 INSTANT ACCESS
                               </Badge>
+                              {selectedCountry === "Pakistan" && (
+                                <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 px-3 py-1">
+                                  PAKISTAN ONLY
+                                </Badge>
+                              )}
                             </div>
                           </div>
                         </div>
