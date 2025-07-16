@@ -30,11 +30,7 @@ export const PricingProvider = ({ children }: PricingProviderProps) => {
   const [exchangeRate, setExchangeRate] = useState(1);
 
   const convertPrice = (priceInINR: number) => {
-    if (selectedCountry === "Pakistan") {
-      // Special pricing for Pakistan - only one-time payment
-      if (priceInINR === 2499) return 5000; // One-time payment special price
-      if (priceInINR === 14999) return 29999; // Original price for Pakistan
-    }
+    // Same pricing for all countries - just convert to local currency
     return Math.round(priceInINR * exchangeRate);
   };
 
