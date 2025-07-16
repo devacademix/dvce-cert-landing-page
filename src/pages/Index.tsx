@@ -7,6 +7,10 @@ import { Helmet } from "react-helmet";
 
 const Index = () => {
   const handleWhatsApp = () => {
+    window.open("https://wa.link/zmbhrw", '_blank');
+  };
+
+  const handleWhatsAppGroup = () => {
     window.open("https://chat.whatsapp.com/JCOWIvdDQNuJIuGOIW49r6", '_blank');
   };
 
@@ -85,9 +89,9 @@ const Index = () => {
             {/* Right Column */}
             <div className="order-first md:order-last">
               <img 
-                src="/lovable-uploads/4e959599-653d-494f-8949-734491f2947b.png" 
-                alt="Cybersecurity Expert" 
-                className="rounded-2xl shadow-2xl w-full" 
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                alt="Cybersecurity Technology" 
+                className="rounded-2xl shadow-2xl w-full object-cover h-[400px]" 
               />
             </div>
           </div>
@@ -581,9 +585,9 @@ const Index = () => {
             {/* Left Column */}
             <div>
               <img 
-                src="/lovable-uploads/991c982d-f89f-499d-892d-8e195a59f807.png"
-                alt="Experienced Instructors"
-                className="rounded-2xl shadow-2xl"
+                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="Programming and Cybersecurity Training"
+                className="rounded-2xl shadow-2xl object-cover h-[400px] w-full"
               />
             </div>
 
