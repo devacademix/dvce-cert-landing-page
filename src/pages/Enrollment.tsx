@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, CreditCard, Calendar, MessageCircle, ArrowLeft, Shield, Star, Zap, Award, Globe } from "lucide-react";
+import { CheckCircle, CreditCard, Calendar, MessageCircle, ArrowLeft, Shield, Star, Zap, Award, Globe, Code, Laptop } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { usePricing } from "@/contexts/PricingContext";
@@ -38,6 +38,10 @@ const Enrollment = () => {
   };
 
   const handleWhatsApp = () => {
+    window.open("https://wa.link/zmbhrw", '_blank');
+  };
+
+  const handleWhatsAppGroup = () => {
     window.open("https://chat.whatsapp.com/JCOWIvdDQNuJIuGOIW49r6", '_blank');
   };
 
@@ -107,6 +111,48 @@ const Enrollment = () => {
                   ⏰ Offer Ends Soon!
                 </Badge>
               </div>
+            </div>
+
+            {/* Frontend Image Section */}
+            <div className="mb-8 sm:mb-12">
+              <Card className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 border-blue-500/40 backdrop-blur-sm">
+                <CardContent className="p-6 sm:p-8">
+                  <div className="text-center mb-6">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-4">
+                      Modern Frontend Development
+                    </h2>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-6 items-center">
+                    <div className="aspect-video bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg flex items-center justify-center overflow-hidden relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20"></div>
+                      <div className="relative z-10 text-center p-6">
+                        <Laptop className="w-16 h-16 text-blue-400 mx-auto mb-4" />
+                        <Code className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+                        <h3 className="text-2xl font-bold text-white mb-2">Frontend Technologies</h3>
+                        <p className="text-slate-300">React, TypeScript, Modern CSS</p>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="flex items-center space-x-3">
+                        <CheckCircle className="w-6 h-6 text-green-400" />
+                        <span className="text-white font-medium">Responsive Web Design</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <CheckCircle className="w-6 h-6 text-green-400" />
+                        <span className="text-white font-medium">Modern JavaScript Frameworks</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <CheckCircle className="w-6 h-6 text-green-400" />
+                        <span className="text-white font-medium">UI/UX Best Practices</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <CheckCircle className="w-6 h-6 text-green-400" />
+                        <span className="text-white font-medium">Performance Optimization</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
 
             {/* Certificates Section */}
@@ -224,57 +270,59 @@ const Enrollment = () => {
                     </Label>
                   </div>
 
-                  {/* Installment Payment */}
-                  <div className={`relative p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border-2 sm:border-3 transition-all duration-500 cursor-pointer transform hover:scale-[1.02] ${
-                    paymentType === "installment" 
-                      ? "border-blue-500 bg-gradient-to-br from-blue-500/20 to-purple-500/10 shadow-2xl shadow-blue-500/30" 
-                      : "border-slate-600/50 bg-slate-800/30 hover:border-blue-500/50"
-                  }`}>
-                    <div className="absolute top-4 sm:top-6 right-4 sm:right-6">
-                      <RadioGroupItem value="installment" id="installment" className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </div>
-                    
-                    <Label htmlFor="installment" className="cursor-pointer block">
-                      <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6">
-                        <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 text-center sm:text-left">
-                          <div className="p-3 sm:p-4 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl sm:rounded-2xl shadow-lg">
-                            <Calendar className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 text-white" />
-                          </div>
-                          <div>
-                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">Flexible Payment Plan</h3>
-                            <p className="text-slate-300 text-sm sm:text-base md:text-lg mb-3 sm:mb-4">Pay in installments - Start with advance payment</p>
-                            <div className="flex flex-wrap justify-center sm:justify-start gap-2">
-                              <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 px-2 sm:px-3 py-1 text-xs sm:text-sm">
-                                FLEXIBLE
-                              </Badge>
-                              <Badge className="bg-yellow-500/20 text-yellow-400 border-yellow-500/30 px-2 sm:px-3 py-1 text-xs sm:text-sm">
-                                LOW UPFRONT
-                              </Badge>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="text-center">
-                          <div className="flex flex-col items-center space-y-2">
-                            <div className="flex flex-col sm:flex-row items-center sm:items-baseline space-y-1 sm:space-y-0 sm:space-x-3">
-                              <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400">
-                                ₹{currentPrices.installment.discounted.toLocaleString()}
-                              </span>
-                              <span className="text-lg sm:text-xl md:text-2xl text-slate-400 line-through">
-                                ₹{currentPrices.installment.original.toLocaleString()}
-                              </span>
-                            </div>
-                            <Badge className="bg-red-500/30 text-red-300 border-red-500/50 text-sm sm:text-base md:text-lg px-3 sm:px-4 py-1 sm:py-2 font-bold">
-                              SAVE ₹{(currentPrices.installment.original - currentPrices.installment.discounted).toLocaleString()}
-                            </Badge>
-                            <p className="text-sm sm:text-base md:text-lg text-slate-300 mt-2 font-semibold">
-                              Start with: ₹{currentPrices.installment.advance.toLocaleString()}
-                            </p>
-                          </div>
-                        </div>
+                  {/* Installment Payment - Hidden for Pakistan */}
+                  {selectedCountry !== "Pakistan" && (
+                    <div className={`relative p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border-2 sm:border-3 transition-all duration-500 cursor-pointer transform hover:scale-[1.02] ${
+                      paymentType === "installment" 
+                        ? "border-blue-500 bg-gradient-to-br from-blue-500/20 to-purple-500/10 shadow-2xl shadow-blue-500/30" 
+                        : "border-slate-600/50 bg-slate-800/30 hover:border-blue-500/50"
+                    }`}>
+                      <div className="absolute top-4 sm:top-6 right-4 sm:right-6">
+                        <RadioGroupItem value="installment" id="installment" className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
-                    </Label>
-                  </div>
+                      
+                      <Label htmlFor="installment" className="cursor-pointer block">
+                        <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6">
+                          <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 text-center sm:text-left">
+                            <div className="p-3 sm:p-4 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl sm:rounded-2xl shadow-lg">
+                              <Calendar className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 text-white" />
+                            </div>
+                            <div>
+                              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">Flexible Payment Plan</h3>
+                              <p className="text-slate-300 text-sm sm:text-base md:text-lg mb-3 sm:mb-4">Pay in installments - Start with advance payment</p>
+                              <div className="flex flex-wrap justify-center sm:justify-start gap-2">
+                                <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 px-2 sm:px-3 py-1 text-xs sm:text-sm">
+                                  FLEXIBLE
+                                </Badge>
+                                <Badge className="bg-yellow-500/20 text-yellow-400 border-yellow-500/30 px-2 sm:px-3 py-1 text-xs sm:text-sm">
+                                  LOW UPFRONT
+                                </Badge>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="text-center">
+                            <div className="flex flex-col items-center space-y-2">
+                              <div className="flex flex-col sm:flex-row items-center sm:items-baseline space-y-1 sm:space-y-0 sm:space-x-3">
+                                <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400">
+                                  ₹{currentPrices.installment.discounted.toLocaleString()}
+                                </span>
+                                <span className="text-lg sm:text-xl md:text-2xl text-slate-400 line-through">
+                                  ₹{currentPrices.installment.original.toLocaleString()}
+                                </span>
+                              </div>
+                              <Badge className="bg-red-500/30 text-red-300 border-red-500/50 text-sm sm:text-base md:text-lg px-3 sm:px-4 py-1 sm:py-2 font-bold">
+                                SAVE ₹{(currentPrices.installment.original - currentPrices.installment.discounted).toLocaleString()}
+                              </Badge>
+                              <p className="text-sm sm:text-base md:text-lg text-slate-300 mt-2 font-semibold">
+                                Start with: ₹{currentPrices.installment.advance.toLocaleString()}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </Label>
+                    </div>
+                  )}
                 </RadioGroup>
 
                 {/* What's Included Section */}
@@ -359,10 +407,18 @@ const Enrollment = () => {
                     <MessageCircle className="w-6 sm:w-8 h-6 sm:h-8 mr-3 sm:mr-4" />
                     WhatsApp Expert Support
                   </Button>
-                  <div className="text-slate-300 text-center">
-                    <p className="font-semibold text-base sm:text-lg">Get instant support and personalized guidance</p>
-                    <p className="text-sm sm:text-base">Available 24x7 for all your queries</p>
-                  </div>
+                  <Button 
+                    onClick={handleWhatsAppGroup}
+                    variant="outline"
+                    className="border-2 border-green-500/60 text-green-300 hover:bg-green-500/20 hover:border-green-400 font-bold px-6 sm:px-10 py-4 sm:py-6 rounded-full shadow-lg transition-all duration-300 text-lg sm:text-xl"
+                  >
+                    <MessageCircle className="w-6 sm:w-8 h-6 sm:h-8 mr-3 sm:mr-4" />
+                    Join WhatsApp Group
+                  </Button>
+                </div>
+                <div className="text-slate-300 text-center mt-6">
+                  <p className="font-semibold text-base sm:text-lg">Get instant support and personalized guidance</p>
+                  <p className="text-sm sm:text-base">Available 24x7 for all your queries</p>
                 </div>
               </CardContent>
             </Card>
